@@ -4,19 +4,20 @@
 //----------------VARIABLES-----------------//
 :root{
     --header-height: 80px;
+    --container-max-width: 1400px;
 
     //------------ Colors -----------//
     --first-color: #2874F0;
     --title-color: #393939;
-    --text-color: #707070;
+    --text-color: #4d4d4d;
     --home-background-color: #EDF2F8;
 
     /********** Typography **********/
     --Montserrat: 'Montserrat', sans-serif;
     --Ubuntu: 'Ubuntu', sans-serif;
     --biggest-font-size: 3.5rem;
-    --big-font-size: 1.2rem;
-    --normal-font-size: 1.6rem;//
+    --big-font-size: 2.5rem;
+    --normal-font-size: 1.9rem;//
     --small-font-size: .813rem;
     --smaller-font-size: .75rem;
 
@@ -91,9 +92,10 @@ header {
     height: var(--header-height);
     position: fixed;
     z-index: 100;
+    backdrop-filter: blur(20px);
 
     .nav {
-        max-width: 1300px;
+        max-width: var(--container-max-width);
         width: 100%;
         // position: fixed;
         display: flex;
@@ -121,6 +123,7 @@ header {
                 border: 0.2rem solid transparent;
                 border-radius: 2rem;
                 padding: 0px var(--length-1);
+                font-size: 1.6rem;
             }
             .active-item{
                 border: 0.2rem solid var(--first-color);
@@ -139,27 +142,42 @@ header {
     }
 }
 
-// --------MAIN CONTAINER---------//
+// --------MAIN---------//
 .main_container {
-    width: 100%;
     height: 100vh;
-    display: flex;
-    justify-content: center;
-
-    main {
-        max-width: 1300px;
+// --------COMMON SECTION & CONTAINER---------//
+    .section {
+        height: 100vh;
         width: 100%;
-        position: relative;
-        
+        display: flex;
+        justify-content: center;
+    }
+    .container {
+        max-width: var(--container-max-width);
+        width: 100%;
+        height: calc(100vh - var(--header-height));
+        margin-top: var(--header-height);
+    }
+// --------HOME SECTION---------//
+    .home_section {
+        background-color: var(--home-background-color);
+        border-bottom: 5px solid var(--first-color);
+
         .home_container {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: calc(100vh - var(--header-height));
-            background-color: var(--home-background-color);
-            margin-top: var(--header-height);
+            // height: calc(100vh - var(--header-height));
+            // margin-top: var(--header-height);
             position: relative;
+            .main_img {
+              img {
+                width: 100%;
+                height: 100%;
+              }
+              // width: 100%;
+            }
             // --------SOCIAL ICONS---------//
             .social_icons {
                 // background-color: #cacaca;
@@ -186,23 +204,20 @@ header {
                 align-items: center;
                 top: 0;
                 left: 0;
-                transform: translate(15%,70%);
+                transform: translate(20%,70%);
                 padding: 1rem 2rem;
                 border-right: rgb(209, 209, 209) 3px solid;
                 border-bottom: solid 3px rgb(209, 209, 209);
     
                 .hi_img {
                     height: 6rem;
-                    // margin: 15px;
                     transform: rotate(-27deg);
                 }
                 .content {
-                    // font-weight: var(--font-semi-bold);
                     color: rgb(133, 133, 133);
                     font-family: var(--Ubuntu);
                     text-align: left;
                     font-size: 1.9rem;
-                    // margin: 15px;
                     margin-left: 1.5rem;
                     line-height: 3.5rem;
                     span {
@@ -274,6 +289,181 @@ header {
                 100%{
                 top: 4px;
                 bottom: 34px;
+                }
+            }
+        }
+    }
+// --------ABOUT SECTION---------//
+    .about_section {
+        background-color: white;
+        .about_container {
+            position: relative;
+            display: flex;
+            .title_container {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                text-align: center;
+                .title {
+                    font-family: var(--Ubuntu);
+                    color: var(--title-color);
+                    font-size: var(--biggest-font-size);
+                }
+            }
+            .background_text {
+                position: absolute;
+                font-family: var(--Ubuntu);
+                font-size: 35rem;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: #F1F1F1;
+            }
+            .main_content {
+                z-index: 10;
+                align-self: center;
+                margin-left: auto;
+                margin-right: auto;
+                width: 100%;
+                max-width: 60ch;
+                .profile_img {
+                    height: 200px;
+                    width: 200px;
+                    border: 5px var(--first-color) solid;
+                    border-radius: 50%;
+                    margin-left: auto;
+                    margin-right: auto;
+
+                    background-image: url(/assets/img/aboutpage/about_img.jpg);
+                    background-position: center;
+                    background-size: cover;
+                    box-shadow: 0px 0px 15px var(--first-color);
+                    transform: translateY(-50%);
+                }
+                .content {
+                    .start_content {
+                        display: flex;
+                        .start_text {
+                            font-size: var(--biggest-font-size);
+                            color: var(--title-color);
+                            font-family: var(--Ubuntu);
+                        }
+                        .name_changing_ani {
+                            .wrapper {
+                                height: 40px;
+                                width: 200px;
+                                background-color: rgba(255, 255, 255, 0);
+                                position: relative;
+                                overflow: hidden;
+                                animation-name: swapAni;
+                                animation-timing-function: ease-in-out;
+                                animation-iteration-count: infinite;
+                                animation-duration: 5s;
+                                display: flex;
+                                align-items: center;
+                                transform: translateX(-5%);
+                                transform: translate(-5px, 25%);
+                                margin-left: 15px;
+                                background-color: var(--first-color);
+                              }
+                              @keyframes swapAni {
+                                0% {
+                                  width: 3px;
+                                }
+                                50% {
+                                  width: 200px;
+                                }
+                                100% {
+                                  width: 3px;
+                                }
+                              }
+                              .wrapper::after {
+                                content: "";
+                                background-color: rgb(255, 255, 255);
+                                height: 40px;
+                                width: 4px;
+                                position: absolute;
+                                right: 0;
+                                animation: colorChange 10s ease-in-out 0s infinite;
+                              }
+                              @keyframes colorChange {
+                                0% {
+                                  background-color: violet;
+                                }
+                                25% {
+                                  background-color: rgb(194, 22, 22);
+                                }
+                                50% {
+                                  background-color: rgb(230, 123, 36);
+                                }
+                                75% {
+                                  background-color: rgb(51, 218, 240);
+                                }
+                                100% {
+                                  background-color: violet;
+                                }
+                              }
+                              .wrapper .text1,
+                              .text2 {
+                                font-size: var(--big-font-size);
+                                font-family: var(--Ubuntu);
+                                font-weight: var(--font-light);
+                                color: rgb(255, 255, 255);
+                                white-space: nowrap;
+                                position: absolute;
+                              }
+                              .wrapper .text1 {
+                                left: 10px;
+                                animation: text1show 10s linear 0s infinite;
+                              }
+                              @keyframes text1show {
+                                0% {
+                                  visibility: visible;
+                                }
+                                50% {
+                                  visibility: hidden;
+                                }
+                                100% {
+                                  visibility: hidden;
+                                }
+                              }
+                              .wrapper .text2 {
+                                left: 10px;
+                                animation: text2show 10s linear 0s infinite;
+                              }
+                              @keyframes text2show {
+                                0% {
+                                  visibility: hidden;
+                                }
+                                50% {
+                                  visibility: hidden;
+                                }
+                                100% {
+                                  visibility: visible;
+                                }
+                              }
+                        }
+                    }
+                    .text_content {
+                        margin-bottom: 2rem;
+                        margin-top: 1rem;
+                        text-shadow: 0px 0px 0px #808080;
+                    }
+                    .aboutpage_button {
+                        display: flex;
+                        width: fit-content;
+                        background-color: var(--first-color);
+                        color: white;
+                        border: 0.2rem solid var(--first-color);
+                        border-radius: 2rem;
+                        padding: 0 var(--length-1);
+
+                        img {
+                            height: 20px;
+                            align-self: center;
+                            margin-left:calc(var(--length-1)/2);
+                        }
+                    }
                 }
             }
         }
