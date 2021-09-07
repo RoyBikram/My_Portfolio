@@ -52,8 +52,8 @@ var swiper = new Swiper(".mySwiper", {
     effect: "cards",
     grabCursor: true,
     mousewheel: true,
-    // autoplay: {
-    //     delay: 5000,
-    //     disableOnInteraction: false,
-    //   },
+    autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
   });
