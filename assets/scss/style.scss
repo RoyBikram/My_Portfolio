@@ -1234,6 +1234,8 @@ header {
     // --------CONTACTS SECTION---------//
     .contacts_section {
       background-color: #1F1F1F;
+      // background-color: rebeccapurple;
+      position: relative;
       .contacts_container {
           // display: flex;
           position: relative;
@@ -1288,7 +1290,9 @@ header {
               width: fit-content;
               flex-direction: column;
               justify-content: center;
-              padding: 5rem 0 5rem 2rem;
+              margin:5rem 0;
+              padding-left: 2rem;
+              
               .main_text {
                 font-size: var(--biggest-font-size);
                 color: var(--white);
@@ -1376,6 +1380,20 @@ header {
           }
 
         }
+      .footer {
+        position: absolute;
+        bottom: 0;
+        width: 100vw;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: black;
+        font-size: var(--smaller-font-size);
+        img {
+          margin: 0 5px;
+        }
+      }
 
       }
     }

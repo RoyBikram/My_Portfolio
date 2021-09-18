@@ -1135,6 +1135,7 @@ header .nav_massage img {
 }
 .main_container .contacts_section {
   background-color: #1F1F1F;
+  position: relative;
 }
 .main_container .contacts_section .contacts_container {
   position: relative;
@@ -1185,7 +1186,8 @@ header .nav_massage img {
   width: fit-content;
   flex-direction: column;
   justify-content: center;
-  padding: 5rem 0 5rem 2rem;
+  margin: 5rem 0;
+  padding-left: 2rem;
 }
 .main_container .contacts_section .contacts_container .grid_container .main_content .main_text {
   font-size: var(--biggest-font-size);
@@ -1261,4 +1263,18 @@ header .nav_massage img {
   font-size: var(--biggest-font-size);
   font-family: var(--Ubuntu);
   margin-bottom: 8rem;
+}
+.main_container .contacts_section .footer {
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  font-size: var(--smaller-font-size);
+}
+.main_container .contacts_section .footer img {
+  margin: 0 5px;
 }/*# sourceMappingURL=style.css.map */
