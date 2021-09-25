@@ -87,3 +87,23 @@ const observer = new IntersectionObserver((first, second) => {
 sections.forEach(each => {
   observer.observe(each)
 });
+
+
+
+
+//  MOBILE NAVIGATION BUTTON
+
+const navigation_button = document.querySelector('.mobile_navigation_button');
+const mobile_navbar = document.querySelector('.mobile_navbar')
+
+
+navigation_button.addEventListener('click', function(){
+  navigation_button.classList.toggle('navigation_button_clicked');
+  mobile_navbar.classList.toggle('active')
+});
+mobile_navbar.querySelectorAll('a').forEach(element => {
+  element.addEventListener('click', function(){
+    navigation_button.classList.toggle('navigation_button_clicked');
+    mobile_navbar.classList.toggle('active')
+  });
+});

@@ -119,13 +119,76 @@ img {
   height: auto;
 }
 
+.mobile_navbar {
+  --nav_location: calc(100vw - 23px);
+  clip-path: circle(0% at var(--nav_location) 25px);
+  position: fixed;
+  background: #141414;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  transition: all 0.5s cubic-bezier(0.23, 0.93, 0.23, 0.93);
+  z-index: 900;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mobile_navbar .nav_list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 250px;
+}
+.mobile_navbar .nav_list .item {
+  margin: 0px var(--length-1);
+  border: 0.2rem solid transparent;
+  border-radius: 2rem;
+  padding: 0.2rem var(--length-1);
+  font-size: var(--normal-font-size);
+  transition: all 0.5s;
+  width: fit-content;
+}
+.mobile_navbar .nav_list .item a {
+  color: var(--text-color);
+}
+.mobile_navbar .nav_list .active_link {
+  border: 0.2rem solid var(--primary-color);
+  border-radius: 2rem;
+}
+.mobile_navbar .nav_list .active_link a {
+  color: var(--white);
+}
+.mobile_navbar.active {
+  clip-path: circle(140% at 96.5% 4%);
+  transition: all 0.7s cubic-bezier(0.23, 0.93, 0.23, 0.93);
+}
+.mobile_navbar.active ul > li {
+  animation: animateIn 500ms ease-in-out calc(var(--animation-order) * 100ms) both;
+}
+.mobile_navbar.reverse_anim {
+  clip-path: circle(0% at 96.5% 4%);
+  opacity: 0.6;
+  transition: all 0.4s cubic-bezier(0.23, 0.93, 0.23, 0.93);
+}
+
+@keyframes animateIn {
+  0% {
+    opacity: 0;
+    transform: translateX(10px) rotate(2deg);
+  }
+  100% {
+    opacity: 1;
+  }
+}
 header {
   width: 100%;
   display: flex;
   justify-content: center;
   height: var(--header-height);
   position: fixed;
-  z-index: 100;
+  z-index: 1000;
   backdrop-filter: blur(20px);
 }
 header .nav {
@@ -184,6 +247,36 @@ header .nav_massage {
 header .nav_massage img {
   height: 24px;
   width: 25px;
+}
+header .nav .mobile_navigation_button {
+  height: 20px;
+  width: 26px;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.5s;
+}
+header .nav .mobile_navigation_button .first, header .nav .mobile_navigation_button .second {
+  height: 4px;
+  width: 100%;
+  border: 1px solid var(--white);
+  border-radius: 2px;
+  transform-origin: 100% 50%;
+  transition: all 0.5s;
+}
+header .nav .navigation_button_clicked {
+  height: 24px;
+  width: 28px;
+}
+header .nav .navigation_button_clicked .first {
+  transform: rotate(-45deg);
+  border-color: #eb2f06;
+  background-color: #eb2f06;
+}
+header .nav .navigation_button_clicked .second {
+  transform: rotate(45deg);
+  border-color: #eb2f06;
 }
 
 .main_container {
@@ -749,7 +842,7 @@ header .nav_massage img {
   transform: translate(-28%, -28%);
   border-radius: 50%;
   border: white 2px solid;
-  z-index: 100;
+  z-index: 50;
 }
 .main_container .process_section .process_container .middle_line .card_circle .card_container .card {
   width: 320px;
@@ -918,7 +1011,7 @@ header .nav_massage img {
   height: 100%;
   width: 50px;
   background-image: linear-gradient(90deg, var(--section-background-color), rgba(31, 31, 31, 0));
-  z-index: 999;
+  z-index: 50;
 }
 .main_container .tech_section .tech_container .grid_container .swiper::before {
   position: absolute;
@@ -928,7 +1021,7 @@ header .nav_massage img {
   height: 100%;
   width: 50px;
   background-image: linear-gradient(270deg, var(--section-background-color), rgba(31, 31, 31, 0));
-  z-index: 999;
+  z-index: 50;
 }
 .main_container .tech_section .tech_container .grid_container .swiper .swiper-slide {
   text-align: justify;
@@ -1216,6 +1309,9 @@ header .nav_massage img {
   }
   header .nav_massage {
     display: none;
+  }
+  header .nav .mobile_navigation_button {
+    display: flex;
   }
 
   .main_container {
