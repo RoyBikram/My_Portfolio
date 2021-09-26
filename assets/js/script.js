@@ -3,13 +3,12 @@ const cursor = document.querySelector('.cursor');
 const follower = document.querySelector('.follower');
 const social_icons = document.querySelectorAll('.social_icons img')
 const nav_link = document.querySelectorAll('.nav_link')
-const nav_list = document.querySelector('.nav_list')
+const nav_list = document.querySelectorAll('.nav_list')
 const nav_massage = document.querySelector('.nav_massage')
 const scroll_container = document.querySelector('.scroll-container')
 const aboutpage_button = document.querySelector('.aboutpage_button')
 const hire_button = document.querySelectorAll('.hire_button')
 const buttons = document.querySelectorAll('button')
-
 document.addEventListener('mousemove', e => {
     cursor.style.left = e.pageX + 'px';
     cursor.style.top = e.pageY + 'px';
@@ -78,9 +77,13 @@ const options = {
 const observer = new IntersectionObserver((first, second) => {
   first.forEach ((each) => {
     if (each.isIntersecting) {
-      nav_list.querySelector(`.${each.target.className.slice(8, -8)}`).classList.add('active_link');
+      nav_list.forEach((element) => {
+        element.querySelector(`.${each.target.className.slice(8, -8)}`).classList.add('active_link');
+      })
     } else {
-      nav_list.querySelector(`.${each.target.className.slice(8, -8)}`).classList.remove('active_link');
+      nav_list.forEach((element) => {
+        element.querySelector(`.${each.target.className.slice(8, -8)}`).classList.remove('active_link');
+      })
     }
   })
 },options)
