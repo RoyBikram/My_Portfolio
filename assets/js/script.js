@@ -70,11 +70,11 @@ slider_buttons[swiper.activeIndex].classList.add('slider_button_active')
 const sections = document.querySelectorAll('section')
 const header = document.querySelector('header')
 
-const options = {
-  threshold: 0.5
+const nav_menu_options = {
+  rootMargin: '-50% 0px'
 }
 
-const observer = new IntersectionObserver((first, second) => {
+const nav_menu_observer = new IntersectionObserver((first, second) => {
   first.forEach ((each) => {
     if (each.isIntersecting) {
       nav_list.forEach((element) => {
@@ -86,9 +86,9 @@ const observer = new IntersectionObserver((first, second) => {
       })
     }
   })
-},options)
+},nav_menu_options)
 sections.forEach(each => {
-  observer.observe(each)
+  nav_menu_observer.observe(each)
 });
 
 
