@@ -714,6 +714,9 @@ header {
                         border: 0.2rem solid var(--primary-color);
                         border-radius: 2rem;
                         padding: 4px 8px;
+                        a {
+                          color: var(--white);
+                        }
 
                         img {
                             height: 15px;
@@ -816,6 +819,9 @@ header {
                                         color: var(--white);
                                         cursor: pointer;
                                         width: fit-content;
+                                        a {
+                                          color: var(--white);
+                                        }
                                         .content {
                                           transform: translateX(-20%);
                                         }

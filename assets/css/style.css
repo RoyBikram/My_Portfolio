@@ -661,6 +661,9 @@ header .nav .navigation_button_clicked .second {
   border-radius: 2rem;
   padding: 4px 8px;
 }
+.main_container .about_section .about_container .main_content .content .aboutpage_button a {
+  color: var(--white);
+}
 .main_container .about_section .about_container .main_content .content .aboutpage_button img {
   height: 15px;
   align-self: center;
@@ -754,6 +757,9 @@ header .nav .navigation_button_clicked .second {
   color: var(--white);
   cursor: pointer;
   width: fit-content;
+}
+.main_container .service_section .service_container .grid_container .first_container .item .hire_button a, .main_container .service_section .service_container .grid_container .second_container .item .hire_button a, .main_container .service_section .service_container .grid_container .third_container .item .hire_button a {
+  color: var(--white);
 }
 .main_container .service_section .service_container .grid_container .first_container .item .hire_button .content, .main_container .service_section .service_container .grid_container .second_container .item .hire_button .content, .main_container .service_section .service_container .grid_container .third_container .item .hire_button .content {
   transform: translateX(-20%);
