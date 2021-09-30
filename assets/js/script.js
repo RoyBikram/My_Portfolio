@@ -8,7 +8,17 @@ const nav_massage = document.querySelector('.nav_massage')
 const scroll_container = document.querySelector('.scroll-container')
 const aboutpage_button = document.querySelector('.aboutpage_button')
 const hire_button = document.querySelectorAll('.hire_button')
-const buttons = document.querySelectorAll('button')
+const all_links = document.querySelectorAll('a')
+const scroll_down = document.querySelector('.scroll-down')
+const about_title = document.querySelector('#about_title')
+const about_title_separator = document.querySelector('#about_title_separator')
+const about_sec_bg_text = document.querySelector('.about_section .background_text text')
+const service_heading = document.querySelector('.service_section .leftSide .heading')
+const process_subtitle_underline = document.querySelector('.process_section .subtitle .underline')
+const tech_heading = document.querySelector('.tech_section .heading')
+const portfolio_separator = document.querySelector('.portfolio_section .separator')
+const contacts_maincontent = document.querySelector('.contacts_section .grid_container .main_content')
+const process_bar = document.querySelector('.process_container .middle_line')
 document.addEventListener('mousemove', e => {
     cursor.style.left = e.pageX + 'px';
     cursor.style.top = e.pageY + 'px';
@@ -18,7 +28,7 @@ document.addEventListener('mousemove', e => {
     }, 100);
 })
 
-const list_for_hover = [...social_icons, ...nav_link,scroll_container,aboutpage_button,...hire_button,nav_massage,...buttons,...slider_buttons] 
+const list_for_hover = [...social_icons ,...all_links,scroll_container,...slider_buttons] 
 
 list_for_hover.forEach((each) => {
     each.addEventListener('mouseenter', e => {
@@ -30,38 +40,53 @@ list_for_hover.forEach((each) => {
     })
 })
 
+
 // Project page swiper
-var swiper = new Swiper("#project_slider", {
-    effect: "cards",
-    grabCursor: true,
-    mousewheel: true,
-    
-});
+
+var project_swiper_option = {
+  effect: "cards",
+  grabCursor: true,
+  mousewheel: true,
+ autoplay: {
+      delay: 2500,
+      disableOnInteraction: true
+    },
+}
+
+var project_swiper = new Swiper("#project_slider", project_swiper_option);
+
+
+
 
 // Tech page swiper
-
-var swiper = new Swiper("#Details_swiper", {
+var tech_swiper_option = {
   mousewheel: true,
+  grabCursor: true,
   autoplay: {
-        delay: 5000,
-        disableOnInteraction: true,
-      },
+    delay: 2500,
+    disableOnInteraction: true
+  },
   pagination: {
     el: ".swiper-pagination",
     clickable: true,
   },
-});
+}
+
+var tech_swiper = new Swiper("#Details_swiper", tech_swiper_option);
 
 slider_buttons.forEach((each, index) => {
 each.addEventListener('click', (params) => {
-  swiper.slideTo(index,500)
+  tech_swiper.slideTo(index,500)
 })
 })
 
-swiper.on('slideChange', function () {
-slider_buttons[swiper.previousIndex].classList.remove('slider_button_active')
-slider_buttons[swiper.activeIndex].classList.add('slider_button_active')
+tech_swiper.on('slideChange', function () {
+slider_buttons[tech_swiper.previousIndex].classList.remove('slider_button_active')
+slider_buttons[tech_swiper.activeIndex].classList.add('slider_button_active')
 })
+
+
+
 
 
 
@@ -109,4 +134,108 @@ mobile_navbar.querySelectorAll('a').forEach(element => {
     navigation_button.classList.toggle('navigation_button_clicked');
     mobile_navbar.classList.toggle('active')
   });
+});
+
+// Animated object opacity down
+// console.log(about_sec_bg_text);
+const all_ani_abj = [scroll_down,
+  ...social_icons,
+  // about_title,
+  // about_title_separator,
+  about_sec_bg_text
+]
+
+all_ani_abj.forEach(each => {
+  each.style.opacity = '0';
+})
+
+const home_ani = () => {
+  social_icons.forEach((each,index) => {
+    each.style.animationDelay = `${(index + 1) * 100}ms`
+    each.classList.add('fade_left')
+  })
+  scroll_down.classList.add('fade_up')
+}
+const about_ani = () => {
+  // about_title_separator.style.animationDelay = `${(index + 1) * 100}ms`
+  about_title_separator.classList.add('barfillupHorizontal')
+  
+
+  about_sec_bg_text.classList.add('strock')
+
+}
+const service_ani = () => {
+  service_heading.classList.add('barfillupVertical')
+  
+}
+const process_ani = () => {
+  process_subtitle_underline.classList.add('barfillupHorizontal')
+  process_bar.classList.add('processbarani')
+}
+const tech_ani = () => {
+  tech_heading.classList.add('barfillupVertical')
+
+}
+const portfolio_ani = () => {
+  portfolio_separator.classList.add('barfillupHorizontal')
+}
+const contacts_ani = () => {
+  contacts_maincontent.classList.add('barfillupVertical')
+}
+
+
+const scroll_ani_options = {
+  rootMargin: '-1% 0px -99% 0px'
+}
+
+const scroll_ani_observer = new IntersectionObserver((first, observer) => {
+  first.forEach ((each) => {
+    if (each.isIntersecting) {
+      // console.log('Intersecing - ' + each.target.classList[1]);
+//       const anifunction = `${each.target.classList[1].slice(0,-8)}_ani`
+//       console.log(anifunction);
+// anifunction()
+
+      switch (each.target.classList[1]) {
+        case 'home_section':
+          home_ani()
+          observer.unobserve(each.target)
+          break;
+        case 'about_section':
+          about_ani()
+          observer.unobserve(each.target)
+          break;
+        case 'service_section':
+          service_ani()
+          observer.unobserve(each.target)
+          break;
+        case 'process_section':
+          process_ani()
+          observer.unobserve(each.target)
+          break;
+        case 'tech_section':
+          tech_ani()
+          observer.unobserve(each.target)
+          break;
+        case 'portfolio_section':
+          portfolio_ani()
+          observer.unobserve(each.target)
+          break;
+        case 'contacts_section':
+          contacts_ani()
+          observer.unobserve(each.target)
+          break;
+      
+        default:
+          // console.log('default');
+          break;
+      }
+      
+    } else {
+      // console.log('Not intersecting - '+ each.target.classList[1]);
+    }
+  })
+},scroll_ani_options)
+sections.forEach(each => {
+  scroll_ani_observer.observe(each)
 });
