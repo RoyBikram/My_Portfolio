@@ -563,21 +563,7 @@ header {
                         border-radius: 5px;
                         background-color: var(--bar_background);
                       }
-                      // .first_part {
-                      //   width: 60%;
-                      //   height: 100%;
-                      //   background-color: var(--secondary-color);
-                      // }
-                      // .second_part {
-                      //   width: 20%;
-                      //   height: 100%;
-                      //   background-color: var(--secondary-color);
-                      // }
-                      // .third_part {
-                      //   width: 10%;
-                      //   height: 100%;
-                      //   background-color: var(--secondary-color);
-                      // }
+                      
                     }
             }
             .background_text {
@@ -1583,15 +1569,7 @@ header {
 
 // bar fill up animation
 .barfillupVertical {
-  
-  // &::before {
-  //   content: '';
-  //   position: absolute;
-  //   height: 100%;
-  //   width: 5px;
-  //   border-radius: 5px;
-  //   background-color: var(--bar_background);
-  // }
+
   &::after {
     content: '';
     position: absolute;
@@ -1615,14 +1593,6 @@ header {
 }
 .barfillupHorizontal {
   --bar_background:rgb(59, 59, 59);
-  // &::before {
-  //   content: '';
-  //   position: absolute;
-  //   width: 100%;
-  //   height: 5px;
-  //   border-radius: 5px;
-  //   background-color: var(--bar_background);
-  // }
   &::after {
     content: '';
     position: absolute;
@@ -1886,7 +1856,9 @@ header {
               }
       }
       .background_text {
-          font-size: 10rem;
+          // font-size: 10rem;
+          width: 360px;
+          height: 150px;
       }
       .main_content {
           width: 90%;
@@ -1902,6 +1874,17 @@ header {
                           height: 31px;
                           width: 170px;
                           transform: translate(-5px, 20%);
+                        }
+                        @keyframes swapAni {
+                          0% {
+                            width: 3px;
+                          }
+                          50% {
+                            width: 170px;
+                          }
+                          100% {
+                            width: 3px;
+                          }
                         }
                   }
               }
@@ -1927,8 +1910,10 @@ header {
 
         }
         .heading {
-          border-left: 3px solid var(--primary-color);
           padding-left: 2rem;
+          &::before, &::after {
+            width: 4px;
+          }
         }
         .lower_part {
           width: 90%;
@@ -1984,8 +1969,12 @@ header {
       text-align: center;
       .underline {
         border-bottom: none;
-        padding: 0;
+        padding: 0rem;
         color: var(--secondary-color);
+        &::before, &::after {
+          // width: 4px;
+          content: none;
+        }
       }
       .box {
         border: none;
@@ -2006,6 +1995,7 @@ header {
         margin-top: 2rem;
         margin-bottom: 200px;
         transform: translateX(-150px);
+        background-color: var(--primary-color);
         .card_circle {
           width: 9px;
           height: 9px;
@@ -2049,7 +2039,6 @@ header {
     }
   }
 }
-
 // --------SKILL SECTION---------//
 .tech_section {
   .tech_container {
@@ -2083,6 +2072,9 @@ header {
       .heading {
         margin-right: 0px;
         margin-bottom: 1rem;
+        &::before, &::after {
+          width: 4px;
+        }
       }
     }
   }
@@ -2098,16 +2090,22 @@ header {
           .text_container {
             width: 100%;
             height: 50vh;
-            min-height: 390px;
+            min-height: 370px;
             .folder_img {
               width: 80px;
             }
             .separator {
              
-              margin: 1.2rem 0;
+              margin: 0rem 0;
+              &::before, &::after {
+                height: 4px;
+              }
             }
             .description {
               width: 90%;
+            }
+            .button{
+              margin-top: 0;
             }
           }
 
@@ -2151,6 +2149,9 @@ header {
             grid-template-areas: 'main_content''rightside_content''sub_content';
             .main_content {
               margin-top:2rem;
+              &::before, &::after {
+                width: 4px;
+              }
             }
             .sub_content {
               flex-direction: column;
@@ -2198,6 +2199,9 @@ header {
                   left: 50%;
                   transform: translate(-21%, -93%);
                 }
+              }
+              .title{
+                margin-top: 2rem;
               }
             }
 

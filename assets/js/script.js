@@ -1,6 +1,7 @@
 const slider_buttons = document.querySelectorAll('.slider_button')
 const cursor = document.querySelector('.cursor');
 const follower = document.querySelector('.follower');
+const social_container = document.querySelector('.social_icons')
 const social_icons = document.querySelectorAll('.social_icons img')
 const nav_link = document.querySelectorAll('.nav_link')
 const nav_list = document.querySelectorAll('.nav_list')
@@ -19,106 +20,13 @@ const tech_heading = document.querySelector('.tech_section .heading')
 const portfolio_separator = document.querySelector('.portfolio_section .separator')
 const contacts_maincontent = document.querySelector('.contacts_section .grid_container .main_content')
 const process_bar = document.querySelector('.process_container .middle_line')
-document.addEventListener('mousemove', e => {
-    cursor.style.left = e.pageX + 'px';
-    cursor.style.top = e.pageY + 'px';
-    setTimeout(() => {
-        follower.style.left = e.pageX + 'px';
-        follower.style.top = e.pageY + 'px';
-    }, 100);
-})
-
-const list_for_hover = [...social_icons ,...all_links,scroll_container,...slider_buttons] 
-
-list_for_hover.forEach((each) => {
-    each.addEventListener('mouseenter', e => {
-        follower.classList.toggle('follower_enter')
-    })
-    each.addEventListener('mouseleave', e => {
-        follower.classList.toggle('follower_enter')
-
-    })
-})
-
-
-// Project page swiper
-
-var project_swiper_option = {
-  effect: "cards",
-  grabCursor: true,
-  mousewheel: true,
- autoplay: {
-      delay: 2500,
-      disableOnInteraction: true
-    },
-}
-
-var project_swiper = new Swiper("#project_slider", project_swiper_option);
-
-
-
-
-// Tech page swiper
-var tech_swiper_option = {
-  mousewheel: true,
-  grabCursor: true,
-  autoplay: {
-    delay: 2500,
-    disableOnInteraction: true
-  },
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-}
-
-var tech_swiper = new Swiper("#Details_swiper", tech_swiper_option);
-
-slider_buttons.forEach((each, index) => {
-each.addEventListener('click', (params) => {
-  tech_swiper.slideTo(index,500)
-})
-})
-
-tech_swiper.on('slideChange', function () {
-slider_buttons[tech_swiper.previousIndex].classList.remove('slider_button_active')
-slider_buttons[tech_swiper.activeIndex].classList.add('slider_button_active')
-})
-
-
-
-
-
-
-// Header active link funtion
-
 const sections = document.querySelectorAll('section')
 const header = document.querySelector('header')
+const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
 
-const nav_menu_options = {
-  rootMargin: '-50% 0px'
-}
-
-const nav_menu_observer = new IntersectionObserver((first, second) => {
-  first.forEach ((each) => {
-    if (each.isIntersecting) {
-      nav_list.forEach((element) => {
-        element.querySelector(`.${each.target.className.slice(8, -8)}`).classList.add('active_link');
-      })
-    } else {
-      nav_list.forEach((element) => {
-        element.querySelector(`.${each.target.className.slice(8, -8)}`).classList.remove('active_link');
-      })
-    }
-  })
-},nav_menu_options)
-sections.forEach(each => {
-  nav_menu_observer.observe(each)
-});
-
-
-
-
+if (vw <= 425) {
+  // For Mobile
+  
 //  MOBILE NAVIGATION BUTTON
 
 const navigation_button = document.querySelector('.mobile_navigation_button');
@@ -135,20 +43,116 @@ mobile_navbar.querySelectorAll('a').forEach(element => {
     mobile_navbar.classList.toggle('active')
   });
 });
+  
+  
+  
+  
+  // Mobile Animation On Scroll
 
-// Animated object opacity down
-// console.log(about_sec_bg_text);
-const all_ani_abj = [scroll_down,
-  ...social_icons,
-  // about_title,
-  // about_title_separator,
-  about_sec_bg_text
-]
+  const about_title_container = document.querySelector('#about_title')
+  const about_background = document.querySelector('#about_background')
+  const service_heading = document.querySelector('#service_heading')
+  const tech_heading = document.querySelector('#tech_heading')
+  const portfolio_separator = document.querySelector('#portfolio_separator')
+  const contact_heading = document.querySelector('#contact_heading')
+  const mobile_ani_obj = [
+    social_container,
+    about_title,
+    about_background,
+    service_heading,
+    tech_heading,
+    portfolio_separator,
+    contact_heading
+  ]
+  const scroll_ani_options = {
+    rootMargin: '-75% 0px -20% 0px'
+  }
+  
+  const scroll_ani_observer = new IntersectionObserver((first, observer) => {
+    first.forEach ((each) => {
+      if (each.isIntersecting) {
 
-all_ani_abj.forEach(each => {
-  each.style.opacity = '0';
-})
+        switch (each.target.id) {
+          case 'social_icons':
+            social_icons.forEach((each,index) => {
+            each.style.animationDelay = `${(index + 1) * 100}ms`
+            each.classList.add('fade_left')
+            })
+            scroll_down.classList.add('fade_up')
+            break;
+          case 'about_title':
+            about_title_separator.classList.add('barfillupHorizontal')
+            observer.unobserve(each.target)
 
+            break;
+          case 'about_background':
+            about_sec_bg_text.classList.add('strock')
+            observer.unobserve(each.target)
+
+            
+            break;
+          case 'service_heading':
+            service_heading.classList.add('barfillupVertical')
+            observer.unobserve(each.target)
+
+            break;
+          case 'tech_heading':
+            tech_heading.classList.add('barfillupVertical')
+            observer.unobserve(each.target)
+
+            break;
+          case 'portfolio_separator':
+            portfolio_separator.classList.add('barfillupHorizontal')
+            observer.unobserve(each.target)
+
+            break;
+          case 'contact_heading':
+            contacts_maincontent.classList.add('barfillupVertical')
+            observer.unobserve(each.target)
+
+            break;
+          default:
+            break;
+        }
+        
+        
+      } 
+    })
+  },scroll_ani_options)
+  mobile_ani_obj.forEach(each => {
+    scroll_ani_observer.observe(each)
+  });
+
+
+} else {
+
+  // For Desktop
+  document.addEventListener('mousemove', e => {
+      cursor.style.left = e.pageX + 'px';
+      cursor.style.top = e.pageY + 'px';
+      setTimeout(() => {
+          follower.style.left = e.pageX + 'px';
+          follower.style.top = e.pageY + 'px';
+      }, 100);
+  })
+  
+  const list_for_hover = [...social_icons ,...all_links,scroll_container,...slider_buttons] 
+  
+  list_for_hover.forEach((each) => {
+      each.addEventListener('mouseenter', e => {
+          follower.classList.toggle('follower_enter')
+      })
+      each.addEventListener('mouseleave', e => {
+          follower.classList.toggle('follower_enter')
+  
+      })
+  })
+
+
+
+  
+
+// animation for each section
 const home_ani = () => {
   social_icons.forEach((each,index) => {
     each.style.animationDelay = `${(index + 1) * 100}ms`
@@ -157,7 +161,6 @@ const home_ani = () => {
   scroll_down.classList.add('fade_up')
 }
 const about_ani = () => {
-  // about_title_separator.style.animationDelay = `${(index + 1) * 100}ms`
   about_title_separator.classList.add('barfillupHorizontal')
   
 
@@ -181,8 +184,11 @@ const portfolio_ani = () => {
 }
 const contacts_ani = () => {
   contacts_maincontent.classList.add('barfillupVertical')
-}
+  }
+  
 
+
+  
 
 const scroll_ani_options = {
   rootMargin: '-1% 0px -99% 0px'
@@ -191,10 +197,6 @@ const scroll_ani_options = {
 const scroll_ani_observer = new IntersectionObserver((first, observer) => {
   first.forEach ((each) => {
     if (each.isIntersecting) {
-      // console.log('Intersecing - ' + each.target.classList[1]);
-//       const anifunction = `${each.target.classList[1].slice(0,-8)}_ani`
-//       console.log(anifunction);
-// anifunction()
 
       switch (each.target.classList[1]) {
         case 'home_section':
@@ -232,10 +234,102 @@ const scroll_ani_observer = new IntersectionObserver((first, observer) => {
       }
       
     } else {
-      // console.log('Not intersecting - '+ each.target.classList[1]);
     }
   })
 },scroll_ani_options)
 sections.forEach(each => {
   scroll_ani_observer.observe(each)
 });
+
+}
+
+
+
+
+
+
+// Project page swiper
+
+var project_swiper_option = {
+  effect: "cards",
+  grabCursor: true,
+  mousewheel: true,
+ autoplay: {
+      delay: 2500,
+      disableOnInteraction: true
+    },
+}
+var project_swiper = new Swiper("#project_slider", project_swiper_option);
+
+
+
+
+// Tech page swiper
+
+var tech_swiper_option = {
+  mousewheel: true,
+  grabCursor: true,
+  autoplay: {
+    delay: 2500,
+    disableOnInteraction: true
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+}
+var tech_swiper = new Swiper("#Details_swiper", tech_swiper_option);
+slider_buttons.forEach((each, index) => {
+each.addEventListener('click', (params) => {
+  tech_swiper.slideTo(index,500)
+})
+})
+
+tech_swiper.on('slideChange', function () {
+slider_buttons[tech_swiper.previousIndex].classList.remove('slider_button_active')
+slider_buttons[tech_swiper.activeIndex].classList.add('slider_button_active')
+})
+
+
+
+// Header active link funtion
+
+
+
+const nav_menu_options = {
+  rootMargin: '-50% 0px'
+}
+
+const nav_menu_observer = new IntersectionObserver((first, second) => {
+  first.forEach ((each) => {
+    if (each.isIntersecting) {
+      nav_list.forEach((element) => {
+        element.querySelector(`.${each.target.className.slice(8, -8)}`).classList.add('active_link');
+      })
+    } else {
+      nav_list.forEach((element) => {
+        element.querySelector(`.${each.target.className.slice(8, -8)}`).classList.remove('active_link');
+      })
+    }
+  })
+},nav_menu_options)
+sections.forEach(each => {
+  nav_menu_observer.observe(each)
+});
+
+
+
+
+// Animated object opacity down
+const all_ani_obj = [scroll_down,
+  ...social_icons,
+  about_sec_bg_text
+]
+
+all_ani_obj.forEach(each => {
+  each.style.opacity = '0';
+})
+
+
+
+

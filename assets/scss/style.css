@@ -1682,7 +1682,6 @@ header .nav .navigation_button_clicked .second {
   }
   .main_container .about_section .about_container .background_text {
     width: 360px;
-    height: 150px;
   }
   .main_container .about_section .about_container .main_content {
     width: 90%;
@@ -1697,17 +1696,6 @@ header .nav .navigation_button_clicked .second {
     width: 170px;
     transform: translate(-5px, 20%);
   }
-  @keyframes swapAni {
-    0% {
-      width: 3px;
-    }
-    50% {
-      width: 170px;
-    }
-    100% {
-      width: 3px;
-    }
-  }
   .main_container .about_section .about_container .main_content .content .aboutpage_button img {
     height: 12px;
   }
@@ -1721,10 +1709,8 @@ header .nav .navigation_button_clicked .second {
     margin-top: 3rem;
   }
   .main_container .service_section .service_container .leftSide .heading {
+    border-left: 3px solid var(--primary-color);
     padding-left: 2rem;
-  }
-  .main_container .service_section .service_container .leftSide .heading::before, .main_container .service_section .service_container .leftSide .heading::after {
-    width: 4px;
   }
   .main_container .service_section .service_container .leftSide .lower_part {
     width: 90%;
@@ -1767,11 +1753,8 @@ header .nav .navigation_button_clicked .second {
   }
   .main_container .process_section .process_container .subtitle .underline {
     border-bottom: none;
-    padding: 0rem;
+    padding: 0;
     color: var(--secondary-color);
-  }
-  .main_container .process_section .process_container .subtitle .underline::before, .main_container .process_section .process_container .subtitle .underline::after {
-    content: none;
   }
   .main_container .process_section .process_container .subtitle .box {
     border: none;
@@ -1790,7 +1773,6 @@ header .nav .navigation_button_clicked .second {
     margin-top: 2rem;
     margin-bottom: 200px;
     transform: translateX(-150px);
-    background-color: var(--primary-color);
   }
   .main_container .process_section .process_container .middle_line_container .middle_line .card_circle {
     width: 9px;
@@ -1853,9 +1835,6 @@ header .nav .navigation_button_clicked .second {
     margin-right: 0px;
     margin-bottom: 1rem;
   }
-  .main_container .tech_section .tech_container .grid_container .heading::before, .main_container .tech_section .tech_container .grid_container .heading::after {
-    width: 4px;
-  }
   .main_container .portfolio_section .portfolio_container {
     flex-direction: column;
   }
@@ -1865,22 +1844,16 @@ header .nav .navigation_button_clicked .second {
   .main_container .portfolio_section .portfolio_container .text_container {
     width: 100%;
     height: 50vh;
-    min-height: 370px;
+    min-height: 390px;
   }
   .main_container .portfolio_section .portfolio_container .text_container .folder_img {
     width: 80px;
   }
   .main_container .portfolio_section .portfolio_container .text_container .separator {
-    margin: 0rem 0;
-  }
-  .main_container .portfolio_section .portfolio_container .text_container .separator::before, .main_container .portfolio_section .portfolio_container .text_container .separator::after {
-    height: 4px;
+    margin: 1.2rem 0;
   }
   .main_container .portfolio_section .portfolio_container .text_container .description {
     width: 90%;
-  }
-  .main_container .portfolio_section .portfolio_container .text_container .button {
-    margin-top: 0;
   }
   .main_container .portfolio_section .portfolio_container .swiper_container {
     width: 100%;
@@ -1914,9 +1887,6 @@ header .nav .navigation_button_clicked .second {
   }
   .main_container .contacts_section .contacts_container .grid_container .main_content {
     margin-top: 2rem;
-  }
-  .main_container .contacts_section .contacts_container .grid_container .main_content::before, .main_container .contacts_section .contacts_container .grid_container .main_content::after {
-    width: 4px;
   }
   .main_container .contacts_section .contacts_container .grid_container .sub_content {
     flex-direction: column;
@@ -1961,9 +1931,6 @@ header .nav .navigation_button_clicked .second {
     top: 0px;
     left: 50%;
     transform: translate(-21%, -93%);
-  }
-  .main_container .contacts_section .contacts_container .grid_container .rightside_content .title {
-    margin-top: 2rem;
   }
   .main_container .contacts_section .footer {
     height: 50px;
