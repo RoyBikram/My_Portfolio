@@ -124,7 +124,7 @@ img {
   --nav_location: calc(100vw - 23px);
   clip-path: circle(0% at var(--nav_location) 25px);
   position: fixed;
-  background: #141414;
+  backdrop-filter: blur(20px);
   width: 100vw;
   height: 100vh;
   top: 0;
@@ -1119,6 +1119,97 @@ header .nav .navigation_button_clicked .second {
 }
 .main_container .portfolio_section {
   background-color: #1F1F1F;
+  position: relative;
+}
+.main_container .portfolio_section .project_container {
+  padding-top: var(--header-height);
+  height: 0%;
+  width: 0%;
+  position: absolute;
+  display: flex;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+  opacity: 0;
+}
+.main_container .portfolio_section .project_container .popup_background {
+  background-color: rgba(0, 0, 0, 0.2);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  backdrop-filter: blur(2px);
+}
+.main_container .portfolio_section .project_container .project_popup {
+  height: fit-content;
+  width: fit-content;
+  display: flex;
+  position: relative;
+  z-index: 5;
+}
+.main_container .portfolio_section .project_container .project_popup .preview_img {
+  height: 600px;
+  width: 600px;
+  border-radius: 0 10px 10px 0;
+}
+.main_container .portfolio_section .project_container .project_popup .details {
+  height: 600px;
+  width: 500px;
+  background-color: rgba(54, 54, 54, 0.247);
+  backdrop-filter: blur(20px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+.main_container .portfolio_section .project_container .project_popup .details .main_content {
+  max-width: 350px;
+}
+.main_container .portfolio_section .project_container .project_popup .details .main_content .heading {
+  font-size: var(--big-font-size);
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+.main_container .portfolio_section .project_container .project_popup .details .main_content .about {
+  margin-bottom: 2rem;
+}
+.main_container .portfolio_section .project_container .project_popup .details .main_content .about .content {
+  margin-left: 1rem;
+}
+.main_container .portfolio_section .project_container .project_popup .details .main_content .tech {
+  margin-bottom: 4rem;
+}
+.main_container .portfolio_section .project_container .project_popup .details .main_content .tech .content {
+  display: flex;
+  margin-left: 1rem;
+}
+.main_container .portfolio_section .project_container .project_popup .details .main_content .tech .content .item {
+  margin-right: 6rem;
+}
+.main_container .portfolio_section .project_container .project_popup .details .main_content .buttons_container {
+  display: flex;
+}
+.main_container .portfolio_section .project_container .project_popup .details .main_content .buttons_container a {
+  color: var(--white);
+  font-size: var(--normal-font-size);
+  padding: 0.5rem 1.3rem;
+  border-radius: 3rem;
+  margin-right: 4rem;
+  border: 2px solid var(--primary-color);
+}
+.main_container .portfolio_section .project_container .project_popup .details .main_content .buttons_container .preview {
+  background-color: var(--primary-color);
+}
+.main_container .portfolio_section .project_container .project_popup .close {
+  position: absolute;
+  height: 20px;
+  right: 0;
+  transform: translate(150%, 0%);
+}
+.main_container .portfolio_section .visible {
+  opacity: 1;
+  height: 100%;
+  width: 100%;
 }
 .main_container .portfolio_section .portfolio_container {
   display: flex;

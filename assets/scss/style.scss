@@ -141,7 +141,8 @@ img{
   --nav_location: calc(100vw - 23px);
   clip-path: circle(0% at var(--nav_location) 25px);
   position: fixed;
-  background: rgb(20, 20, 20);
+  // background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(20px);
   width: 100vw;
   height: 100vh;
   top: 0;
@@ -1218,6 +1219,106 @@ header {
     // --------PORTFOLIO SECTION---------//
     .portfolio_section {
       background-color: #1F1F1F;
+      position: relative;
+      .project_container {
+        padding-top: var(--header-height);
+        height: 0%;
+        width: 0%;
+        position: absolute;
+        display: flex;
+        overflow: hidden;
+        justify-content: center;
+        align-items: center;
+        z-index: 20;
+        opacity: 0;
+      
+        .popup_background {
+          background-color: rgba(0, 0, 0, 0.2);
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          backdrop-filter: blur(2px);
+  
+        }
+        .project_popup {
+          height: fit-content;
+          width: fit-content;
+          display: flex;
+          position: relative;
+          z-index: 5;
+          
+          .preview_img {
+            height: 600px;
+            width: 600px;
+            border-radius: 0 10px 10px 0;
+
+          }
+          .details {
+            height: 600px;
+            width: 500px;
+            background-color: rgba(54, 54, 54, 0.247);
+            backdrop-filter: blur(20px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            .main_content {
+              max-width: 350px;
+              .heading{
+                font-size: var(--big-font-size);
+                color: var(--white);
+                margin-bottom: 1rem;
+              }
+              .about {
+                margin-bottom: 2rem;
+                .content {
+                  margin-left: 1rem;
+
+                }
+              }
+              .tech {
+                margin-bottom: 4rem;
+                .content {
+                  display: flex;
+                  margin-left: 1rem;
+                  .item{
+                    margin-right: 6rem;
+                  }
+                  // justify-content: space-evenly;
+                }
+              }
+              .buttons_container {
+                display: flex;
+                // justify-content: space-evenly;
+
+                a {
+                  color: var(--white);
+                  font-size: var(--normal-font-size);
+                  padding: 0.5rem 1.3rem;
+                  border-radius: 3rem;
+                  margin-right: 4rem;
+                  border: 2px solid var(--primary-color);
+                }
+                .preview {
+                  background-color: var(--primary-color);
+                }
+              }
+              
+            }
+          }
+          .close {
+            position: absolute;
+            height: 20px;
+            right: 0;
+            transform: translate(150%,0%);
+          }
+        }
+      }
+      .visible {
+        opacity: 1;
+        height: 100%;
+        width: 100%;
+      }
       .portfolio_container {
           display: flex;
           position: relative;
@@ -1329,6 +1430,7 @@ header {
               }
             }
           }
+          
       }
     }
 
@@ -1558,7 +1660,6 @@ header {
 }
 
 .blink {
-  // animation: blink 500ms step-start  5;
   
 }
 @keyframes blink {

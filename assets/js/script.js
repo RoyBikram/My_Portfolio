@@ -22,6 +22,10 @@ const contacts_maincontent = document.querySelector('.contacts_section .grid_con
 const process_bar = document.querySelector('.process_container .middle_line')
 const sections = document.querySelectorAll('section')
 const header = document.querySelector('header')
+const portfolio_swiper_buttons = document.querySelectorAll('.portfolio_container .swiper-slide .button')
+const project_container = document.querySelector('.portfolio_section .project_container')
+const project_close = project_container.querySelector('.close')
+const popup_background = project_container.querySelector('.popup_background')
 const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
 
 if (vw <= 425) {
@@ -136,7 +140,7 @@ mobile_navbar.querySelectorAll('a').forEach(element => {
       }, 100);
   })
   
-  const list_for_hover = [...social_icons ,...all_links,scroll_container,...slider_buttons] 
+  const list_for_hover = [...social_icons, ...all_links, scroll_container, ...slider_buttons, ...portfolio_swiper_buttons, project_close, popup_background]
   
   list_for_hover.forEach((each) => {
       each.addEventListener('mouseenter', e => {
@@ -254,10 +258,10 @@ var project_swiper_option = {
   effect: "cards",
   grabCursor: true,
   mousewheel: true,
- autoplay: {
-      delay: 2500,
-      disableOnInteraction: true
-    },
+//  autoplay: {
+//       delay: 2500,
+//       disableOnInteraction: true
+//     },
 }
 var project_swiper = new Swiper("#project_slider", project_swiper_option);
 
@@ -318,8 +322,6 @@ sections.forEach(each => {
 });
 
 
-
-
 // Animated object opacity down
 const all_ani_obj = [scroll_down,
   ...social_icons,
@@ -330,6 +332,107 @@ all_ani_obj.forEach(each => {
   each.style.opacity = '0';
 })
 
+
+// Portfolio page project open buttons function
+
+
+const project_data = {
+  neo_academy: {
+    name: 'UI Design Of An Course Website',
+    description: 'It is a sample online course website UI design. Where all the main services have been described with cards and also has the monthly subscription section.',
+    img_url: '/assets/img/protfulio/project_img/neo_academy.jpg',
+    tech: ['Figma'],
+    preview_url: 'https://www.figma.com/proto/wq41zxFu4pHg5C6Yb2k3tX/Online-Acdamy?node-id=1%3A27&scaling=min-zoom&page-id=0%3A1',
+    source_url:'https://www.figma.com/file/wq41zxFu4pHg5C6Yb2k3tX/Online-Acdamy?node-id=0%3A1'
+  },
+  massage_ui: {
+    name: 'Massage And Call App UI Design.',
+    description: 'This is a message and calls app UI design. Which is inspired by the Facebook massager. I use blue as my main colour here. I have designed the chat screen, profile screen, settings screen and call screen.',
+    img_url: '/assets/img/protfulio/project_img/massage_ui.jpg',
+    tech: ['Figma'],
+    preview_url: 'https://www.figma.com/proto/ktRVIAGOFwRfl26Li5MDNW/Massage-UI?node-id=16%3A1236&scaling=scale-down&page-id=0%3A1&starting-point-node-id=16%3A1236&show-proto-sidebar=1',
+    source_url:'https://www.figma.com/file/ktRVIAGOFwRfl26Li5MDNW/Massage-UI?node-id=0%3A1'
+  },
+  ola_ui_redesign: {
+    name: 'Ola Electric Website UI Redesign',
+    description: 'Here I have redesigned the ola electric website. The main theme is moreover the same but I change the accent colour. I have reduced the inconsistency in UI and change some major UI. Thus try to make a more fluid UI.',
+    img_url: '/assets/img/protfulio/project_img/ola_ui_redesign.jpg',
+    tech: ['Figma'],
+    preview_url: 'https://www.figma.com/proto/wVEDRrGylqlEX5ocHsFCjD/Ola-Electric?node-id=1%3A15&scaling=min-zoom&page-id=0%3A1',
+    source_url:'https://www.figma.com/file/wVEDRrGylqlEX5ocHsFCjD/Ola-Electric?node-id=0%3A1'
+  },
+  alpha_electric: {
+    name: 'Electric Bicycle Launch Website.',
+    description: 'It is an electric bicycle launch website where I have created all the features section of the bicycle. There has the bicycle purchase section and also the service and the app section. At the end, there has the contact section.',
+    img_url: '/assets/img/protfulio/project_img/alpha_electric.jpg',
+    tech: ['HTML', 'CSS', 'JavaScript', 'Github'],
+    preview_url: 'https://alphaelectrify.netlify.app/',
+    source_url:'https://github.com/RoyBikram/Alpha'
+  },
+  favito: {
+    name: 'Interior Design Company Website',
+    description: 'It is a sample website for the home interior design company. I have created the previous work section. At the end, there has a contact section. Also, there has a purchase section.',
+    img_url: '/assets/img/protfulio/project_img/favito.jpg',
+    tech: ['HTML','CSS','JavaScript'],
+    preview_url: '',
+    source_url:''
+  },
+  canvaflow: {
+    name: 'Video And Photo Production Website',
+    description: 'Here I have created the service section for the company. You also find the key strength section of the company and also testimonial section, previous work section, some of the big client section and many more.',
+    img_url: '/assets/img/protfulio/project_img/canvaflow.jpg',
+    tech: ['Wordpress'],
+    preview_url: 'http://demowebsiteone.unaux.com/',
+    source_url:''
+  },
+}
+
+
+
+
+
+
+portfolio_swiper_buttons.forEach(element => {
+  element.addEventListener('click', (event) => {
+    project_container.classList.add('visible')
+    console.log(event.currentTarget.dataset.name);
+    const project_heading = document.querySelector('.project_container .about .heading ')
+    const project_content = document.querySelector('.project_container .about .content ')
+    const project_tech_items = document.querySelectorAll('.project_container .tech .item ')
+    const project_preview_button = document.querySelector('.project_container .buttons_container .preview')
+    const project_source_button = document.querySelector('.project_container .buttons_container .source')
+    const project_preview_img = document.querySelector('.project_container .preview_img')
+    const selected_project = event.currentTarget.dataset.name
+
+    project_heading.textContent = project_data[selected_project].name
+    project_content.textContent = project_data[selected_project].description
+    project_tech_items.forEach((element,index) => {
+      element.textContent = project_data[selected_project].tech[index]
+    });
+    console.log(project_data[selected_project].img_url);
+    project_preview_button.href = project_data[selected_project].preview_url
+    project_source_button.href = project_data[selected_project].source_url
+    project_preview_img.src = project_data[selected_project].img_url
+    
+  })
+});
+
+project_close.addEventListener('click', () => {
+  // project_container.style.display = 'none'
+  // project_container.style.height = 0;
+  // project_container.style.width = 0;
+  project_container.classList.remove('visible')
+
+    
+
+  
+})
+popup_background.addEventListener('click', () => {
+  project_container.classList.remove('visible')
+
+
+  
+})
 
 
 
