@@ -1279,12 +1279,11 @@ header {
               .tech {
                 margin-bottom: 4rem;
                 .content {
-                  display: flex;
+                  display: grid;
+                  grid-template-columns: repeat(3,max-content);
+                  justify-content: space-between;
                   margin-left: 1rem;
-                  .item{
-                    margin-right: 6rem;
-                  }
-                  // justify-content: space-evenly;
+                  row-gap : 1rem;
                 }
               }
               .buttons_container {
@@ -2183,6 +2182,57 @@ header {
 
     // --------PORTFOLIO SECTION---------//
     .portfolio_section {
+
+      .project_container {
+        align-items: flex-end;
+      
+        .popup_background {
+          background-color: rgba(0, 0, 0, 0.2);
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          backdrop-filter: blur(2px);
+  
+        }
+        .project_popup {
+          flex-direction: column;
+          margin-bottom: 5rem;
+          
+          .preview_img {
+            display: none;
+          }
+          .details {
+            height: fit-content;
+            width: 310px;
+            background-color: rgba(37, 37, 37, 0.705);
+            backdrop-filter: blur(20px);
+            padding: 2rem;
+            .main_content {
+              max-width: 270px;
+              width: fit-content;
+              .buttons_container {
+                display: flex;
+
+                a {
+                  padding: 0.4rem 1.1rem;
+                }
+              }
+              
+            }
+          }
+          .close {
+            position: absolute;
+            height: 17px;
+            right: 0;
+            transform: translate(0%,-150%);
+          }
+        }
+      }
+      .visible {
+        opacity: 1;
+        height: 100%;
+        width: 100vw;
+      }
       .portfolio_container {
           flex-direction: column;
           .title_container {

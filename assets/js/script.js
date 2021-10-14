@@ -374,8 +374,8 @@ const project_data = {
     description: 'It is a sample website for the home interior design company. I have created the previous work section. At the end, there has a contact section. Also, there has a purchase section.',
     img_url: '/assets/img/protfulio/project_img/favito.jpg',
     tech: ['HTML','CSS','JavaScript'],
-    preview_url: '',
-    source_url:''
+    preview_url: 'https://favito.netlify.app/',
+    source_url:'https://github.com/RoyBikram/interior_design_website'
   },
   canvaflow: {
     name: 'Video And Photo Production Website',

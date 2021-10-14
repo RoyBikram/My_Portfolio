@@ -1180,11 +1180,11 @@ header .nav .navigation_button_clicked .second {
   margin-bottom: 4rem;
 }
 .main_container .portfolio_section .project_container .project_popup .details .main_content .tech .content {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, max-content);
+  justify-content: space-between;
   margin-left: 1rem;
-}
-.main_container .portfolio_section .project_container .project_popup .details .main_content .tech .content .item {
-  margin-right: 6rem;
+  row-gap: 1rem;
 }
 .main_container .portfolio_section .project_container .project_popup .details .main_content .buttons_container {
   display: flex;
@@ -1946,6 +1946,51 @@ header .nav .navigation_button_clicked .second {
   }
   .main_container .tech_section .tech_container .grid_container .heading::before, .main_container .tech_section .tech_container .grid_container .heading::after {
     width: 4px;
+  }
+  .main_container .portfolio_section .project_container {
+    align-items: flex-end;
+  }
+  .main_container .portfolio_section .project_container .popup_background {
+    background-color: rgba(0, 0, 0, 0.2);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    backdrop-filter: blur(2px);
+  }
+  .main_container .portfolio_section .project_container .project_popup {
+    flex-direction: column;
+    margin-bottom: 5rem;
+  }
+  .main_container .portfolio_section .project_container .project_popup .preview_img {
+    display: none;
+  }
+  .main_container .portfolio_section .project_container .project_popup .details {
+    height: fit-content;
+    width: 310px;
+    background-color: rgba(37, 37, 37, 0.705);
+    backdrop-filter: blur(20px);
+    padding: 2rem;
+  }
+  .main_container .portfolio_section .project_container .project_popup .details .main_content {
+    max-width: 270px;
+    width: fit-content;
+  }
+  .main_container .portfolio_section .project_container .project_popup .details .main_content .buttons_container {
+    display: flex;
+  }
+  .main_container .portfolio_section .project_container .project_popup .details .main_content .buttons_container a {
+    padding: 0.4rem 1.1rem;
+  }
+  .main_container .portfolio_section .project_container .project_popup .close {
+    position: absolute;
+    height: 17px;
+    right: 0;
+    transform: translate(0%, -150%);
+  }
+  .main_container .portfolio_section .visible {
+    opacity: 1;
+    height: 100%;
+    width: 100vw;
   }
   .main_container .portfolio_section .portfolio_container {
     flex-direction: column;
