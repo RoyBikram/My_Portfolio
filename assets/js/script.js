@@ -28,6 +28,19 @@ const project_close = project_container.querySelector('.close')
 const popup_background = project_container.querySelector('.popup_background')
 const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
 
+
+// PRELOADER
+function page_loaded() {
+  setTimeout(() => {
+    document.querySelector('body').classList.add('loaded')
+    
+  }, 1000);
+  
+}
+
+
+
+
 if (vw <= 425) {
   // For Mobile
   
@@ -159,9 +172,10 @@ mobile_navbar.querySelectorAll('a').forEach(element => {
 // animation for each section
 const home_ani = () => {
   social_icons.forEach((each,index) => {
-    each.style.animationDelay = `${(index + 1) * 100}ms`
+    each.style.animationDelay = `${((index + 1) * 100) +2500}ms`
     each.classList.add('fade_left')
   })
+  scroll_down.style.animationDelay = `2500ms`
   scroll_down.classList.add('fade_up')
 }
 const about_ani = () => {
@@ -373,7 +387,7 @@ const project_data = {
     name: 'Interior Design Company Website',
     description: 'It is a sample website for the home interior design company. I have created the previous work section. At the end, there has a contact section. Also, there has a purchase section.',
     img_url: '/assets/img/protfulio/project_img/favito.jpg',
-    tech: ['HTML','CSS','JavaScript'],
+    tech: ['HTML','CSS','JavaScript','Github'],
     preview_url: 'https://favito.netlify.app/',
     source_url:'https://github.com/RoyBikram/interior_design_website'
   },

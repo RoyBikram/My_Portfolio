@@ -1,5 +1,218 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Ubuntu:wght@300;400;500;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+.loader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(10px);
+}
+
+.loader-wrapper .loader {
+  position: relative;
+  z-index: 10000;
+}
+.loader-wrapper .loader .loader-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80px;
+  height: 80px;
+  transform: translate(-50%, -50%) rotate(45deg);
+  perspective: 150px;
+}
+.loader-wrapper .loader .cube {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  transform-style: preserve-3d;
+  background-color: var(--background-heading-color);
+  border: 5px solid transparent;
+}
+.loader-wrapper .loader .cube:nth-of-type(1) {
+  top: 0;
+  left: 0;
+  transform-origin: bottom right;
+  animation: flat3-1 4s infinite ease-in-out;
+}
+.loader-wrapper .loader .cube:nth-of-type(2) {
+  top: 0;
+  left: 50%;
+  opacity: 0.9;
+  transform-origin: bottom left;
+  animation: flat3-2 4s infinite ease-in-out;
+}
+.loader-wrapper .loader .cube:nth-of-type(3) {
+  top: 50%;
+  right: 0;
+  opacity: 0.8;
+  transform-origin: top left;
+  animation: flat3-3 4s infinite ease-in-out;
+}
+.loader-wrapper .loader .cube:nth-of-type(4) {
+  top: 50%;
+  left: 0;
+  opacity: 0.7;
+  transform-origin: top right;
+  animation: flat3-4 4s infinite ease-in-out;
+}
+@keyframes flat3-1 {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  12.5% {
+    transform: rotateX(0deg) rotateY(180deg);
+  }
+  25% {
+    transform: rotateX(-180deg) rotateY(180deg);
+  }
+  37.5% {
+    transform: rotateX(-180deg) rotateY(360deg);
+  }
+  50% {
+    transform: rotateX(0deg) rotateY(360deg);
+  }
+  100% {
+    transform: rotateX(0deg) rotateY(360deg);
+  }
+}
+@keyframes flat3-2 {
+  12.5% {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  25% {
+    transform: rotateX(-180deg) rotateY(0deg);
+  }
+  37.5% {
+    transform: rotateX(-180deg) rotateY(180deg);
+  }
+  50% {
+    transform: rotateX(0deg) rotateY(180deg);
+  }
+  62.5% {
+    transform: rotateX(0deg) rotateY(360deg);
+  }
+  100% {
+    transform: rotateX(0deg) rotateY(360deg);
+  }
+}
+@keyframes flat3-3 {
+  25% {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  37.5% {
+    transform: rotateX(0deg) rotateY(-180deg);
+  }
+  50% {
+    transform: rotateX(180deg) rotateY(-180deg);
+  }
+  62.5% {
+    transform: rotateX(180deg) rotateY(-360deg);
+  }
+  75% {
+    transform: rotateX(0deg) rotateY(-360deg);
+  }
+  100% {
+    transform: rotateX(0deg) rotateY(-360deg);
+  }
+}
+@keyframes flat3-4 {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  37.5% {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  50% {
+    transform: rotateX(180deg) rotateY(0deg);
+  }
+  62.5% {
+    transform: rotateX(180deg) rotateY(-180deg);
+  }
+  75% {
+    transform: rotateX(0deg) rotateY(-180deg);
+  }
+  87.5% {
+    transform: rotateX(0deg) rotateY(-360deg);
+  }
+  100% {
+    transform: rotateX(0deg) rotateY(-360deg);
+  }
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+/*Section */
+.loader-section {
+  position: fixed;
+  top: 0;
+  width: 51%;
+  height: 100%;
+  background: var(--white);
+  z-index: 1000;
+}
+
+.loader-section.section-left {
+  left: 0;
+}
+
+.loader-section.section-right {
+  right: 0;
+}
+
+/*Finished Loading Styles*/
+.loaded .section-left {
+  -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%);
+}
+
+.loaded .section-right {
+  -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transform: translateX(100%);
+  transform: translateX(100%);
+}
+
+.loaded .loader {
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  opacity: 0;
+}
+
+.loaded .loader-wrapper {
+  visibility: hidden;
+  -webkit-transform: translateY(-100%);
+  transform: translateY(-100%);
+  -webkit-transition: all 0.3s 1s ease-out;
+  transition: all 0.3s 1s ease-out;
+}
+
 :root {
   --header-height: 80px;
   --container-max-width: 1400px;
@@ -129,7 +342,7 @@ img {
   height: 100vh;
   top: 0;
   left: 0;
-  transition: all 0.5s cubic-bezier(0.23, 0.93, 0.23, 0.93);
+  transition: all 0.7s cubic-bezier(0.46, 0.03, 0.52, 0.96);
   z-index: 900;
   display: flex;
   justify-content: center;
@@ -163,7 +376,7 @@ img {
 }
 .mobile_navbar.active {
   clip-path: circle(140% at 96.5% 4%);
-  transition: all 0.7s cubic-bezier(0.23, 0.93, 0.23, 0.93);
+  transition: all 0.7s cubic-bezier(0.46, 0.03, 0.52, 0.96);
 }
 .mobile_navbar.active ul > li {
   animation: animateIn 500ms ease-in-out calc(var(--animation-order) * 100ms) both;
@@ -433,8 +646,8 @@ header .nav .navigation_button_clicked .second {
   bottom: 0;
 }
 .main_container .home_section .home_container .scroll-down .scroll-container {
-  width: 30px;
-  height: 60px;
+  width: 3rem;
+  height: 6rem;
   border: 3px solid #525252;
   border-radius: 15px;
   position: relative;
@@ -1300,6 +1513,8 @@ header .nav .navigation_button_clicked .second {
   font-size: var(--normal-font-size);
   font-family: var(--Ubuntu);
   color: var(--white);
+  margin-bottom: 8px;
+  margin-top: 3px;
 }
 .main_container .portfolio_section .portfolio_container .swiper_container .card .main_content .button {
   display: flex;
@@ -1617,7 +1832,7 @@ header .nav .navigation_button_clicked .second {
     width: calc(100%*(6/6));
   }
 }
-@media only screen and (max-width: 425px) {
+@media only screen and (max-width: 426px) {
   :root {
     --header-height: 50px;
     /********** Typography **********/
@@ -1641,6 +1856,11 @@ header .nav .navigation_button_clicked .second {
 
   body {
     line-height: 1.4;
+  }
+
+  .loader-wrapper .loader .loader-container {
+    height: 55px;
+    width: 55px;
   }
 
   header .nav {
