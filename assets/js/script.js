@@ -153,7 +153,7 @@ mobile_navbar.querySelectorAll('a').forEach(element => {
       }, 100);
   })
   
-  const list_for_hover = [...social_icons, ...all_links, scroll_container, ...slider_buttons, ...portfolio_swiper_buttons, project_close, popup_background]
+  const list_for_hover = [ ...all_links, scroll_container, ...slider_buttons, ...portfolio_swiper_buttons, project_close, popup_background]
   
   list_for_hover.forEach((each) => {
       each.addEventListener('mouseenter', e => {

@@ -829,7 +829,7 @@ header {
                     margin-left: auto;
                     margin-right: auto;
                     margin-bottom: 10%;
-                    background-image: url(/assets/img/aboutpage/about_img.jpg);
+                    background-image: url(/assets/img/aboutpage/about_img.png);
                     background-position: center;
                     background-size: cover;
                     box-shadow: 0px 0px 15px var(--primary-color);
@@ -1373,12 +1373,12 @@ header {
               right: 30px;
               border: 3px solid rgba(247, 143, 143, 1);
             }
-            .xd {
-              background-color: rgba(255, 190, 247, 0.61);
+            .github {
+              background-color: rgb(117 117 117 / 40%);
               backdrop-filter: blur(2px);
               bottom: 0;
               right: 0;
-              border: 3px solid rgba(255, 65, 200, 1);
+              border: 3px solid #c5c5c5;
             }
             .css3 {
               background-color: rgba(116, 211, 255, 0.5);

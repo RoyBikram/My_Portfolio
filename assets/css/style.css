@@ -759,7 +759,7 @@ header .nav .navigation_button_clicked .second {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 10%;
-  background-image: url(/assets/img/aboutpage/about_img.jpg);
+  background-image: url(/assets/img/aboutpage/about_img.png);
   background-position: center;
   background-size: cover;
   box-shadow: 0px 0px 15px var(--primary-color);
@@ -1263,12 +1263,12 @@ header .nav .navigation_button_clicked .second {
   right: 30px;
   border: 3px solid #f78f8f;
 }
-.main_container .tech_section .tech_container .grid_container .skill_img_container .xd {
-  background-color: rgba(255, 190, 247, 0.61);
+.main_container .tech_section .tech_container .grid_container .skill_img_container .github {
+  background-color: rgba(117, 117, 117, 0.4);
   backdrop-filter: blur(2px);
   bottom: 0;
   right: 0;
-  border: 3px solid #ff41c8;
+  border: 3px solid #c5c5c5;
 }
 .main_container .tech_section .tech_container .grid_container .skill_img_container .css3 {
   background-color: rgba(116, 211, 255, 0.5);
