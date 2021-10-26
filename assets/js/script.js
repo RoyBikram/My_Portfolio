@@ -380,7 +380,7 @@ const project_data = {
     description: 'It is an electric bicycle launch website where I have created all the features section of the bicycle. There has the bicycle purchase section and also the service and the app section. At the end, there has the contact section.',
     img_url: '/assets/img/protfulio/project_img/alpha_electric.jpg',
     tech: ['HTML', 'CSS', 'JavaScript', 'Github'],
-    preview_url: 'https://alphaelectrify.netlify.app/',
+    preview_url: 'https://alphaofficial.netlify.app//',
     source_url:'https://github.com/RoyBikram/Alpha'
   },
   favito: {
