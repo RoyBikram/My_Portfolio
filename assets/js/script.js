@@ -33,7 +33,12 @@ const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth
 function page_loaded() {
   setTimeout(() => {
     document.querySelector('body').classList.add('loaded')
-    
+    setTimeout(() => {
+      AOS.init({
+        duration: 600, 
+      });
+      
+    }, 800);
   }, 1000);
   
 }
@@ -144,12 +149,15 @@ mobile_navbar.querySelectorAll('a').forEach(element => {
 } else {
 
   // For Desktop
+
+
+  // Custom cursor
   document.addEventListener('mousemove', e => {
-      cursor.style.left = e.pageX + 'px';
-      cursor.style.top = e.pageY + 'px';
+      cursor.style.left = e.x + 'px';
+      cursor.style.top = e.y + 'px';
       setTimeout(() => {
-          follower.style.left = e.pageX + 'px';
-          follower.style.top = e.pageY + 'px';
+          follower.style.left = e.x + 'px';
+          follower.style.top = e.y + 'px';
       }, 100);
   })
   
@@ -209,7 +217,7 @@ const contacts_ani = () => {
   
 
 const scroll_ani_options = {
-  rootMargin: '-1% 0px -99% 0px'
+  rootMargin: '-50% 0px -50% 0px'
 }
 
 const scroll_ani_observer = new IntersectionObserver((first, observer) => {
@@ -351,6 +359,20 @@ all_ani_obj.forEach(each => {
 
 
 const project_data = {
+  fabcom: {
+    name:'Social Media App Landing Page',
+    description: 'It\'s a landing page for an imaginary social media app. In this website, I describe some unique features of the app and provide the download link of the imaginary app.',
+    img_url: '/assets/img/protfulio/project_img/fabcom.png',
+    tech: ['HTML', 'CSS', 'JavaScript', 'SASS', 'Github'],
+    preview_url: 'https://fabcom.netlify.app'
+  },
+  carfinder: {
+    name: 'Car Selling Website',
+    description: 'This is an imaginary car selling website. Where you will find a category section. I also create a spatial services section of the website. And an app section is there.',
+    img_url: '/assets/img/protfulio/project_img/carfinder.png',
+    tech: ['HTML', 'CSS', 'JavaScript', 'SASS', 'Github'],
+    preview_url: 'https://carfinderofficial.netlify.app/'
+  },
   neo_academy: {
     name: 'UI Design Of An Course Website',
     description: 'It is a sample online course website UI design. Where all the main services have been described with cards and also has the monthly subscription section.',
@@ -391,14 +413,6 @@ const project_data = {
     preview_url: 'https://favito.netlify.app/',
     source_url:'https://github.com/RoyBikram/interior_design_website'
   },
-  canvaflow: {
-    name: 'Video And Photo Production Website',
-    description: 'Here I have created the service section for the company. You also find the key strength section of the company and also testimonial section, previous work section, some of the big client section and many more.',
-    img_url: '/assets/img/protfulio/project_img/canvaflow.jpg',
-    tech: ['Wordpress'],
-    preview_url: 'http://demowebsiteone.unaux.com/',
-    source_url:''
-  },
 }
 
 
@@ -425,7 +439,7 @@ portfolio_swiper_buttons.forEach(element => {
     });
     console.log(project_data[selected_project].img_url);
     project_preview_button.href = project_data[selected_project].preview_url
-    project_source_button.href = project_data[selected_project].source_url
+    // project_source_button.href = project_data[selected_project].source_url
     project_preview_img.src = project_data[selected_project].img_url
     
   })
@@ -450,3 +464,47 @@ popup_background.addEventListener('click', () => {
 
 
 
+
+
+
+
+
+// const burst = new mojs.Burst({
+//   left: 0,
+//   top: 0,
+//   radius: { 0: 30 },
+//   angle: "rand(0, 360)",
+//   children: {
+//     shape: "line",
+//     stroke: "white",
+//     fill: "none",
+//     scale: 1,
+//     scaleX: { 1: 0 },
+//     easing: "cubic.out",
+//     duration: 1000 } });
+
+
+
+// const bubbles = new mojs.Burst({
+//   left: 0,
+//   top: 0,
+//   radius: 28,
+//   count: 3,
+//   timeline: { delay: 100 },
+//   children: {
+//     stroke: "white",
+//     fill: "none",
+//     scale: 1,
+//     strokeWidth: { 8: 0 },
+//     radius: { 0: "rand(6, 10)" },
+//     degreeShift: "rand(-50, 50)",
+//     duration: 400,
+//     delay: "rand(0, 250)" } });
+
+
+
+// document.addEventListener("click", function (e) {
+//   burst.tune({ x: e.pageX, y: e.pageY }).generate().replay();
+
+//   bubbles.tune({ x: e.pageX, y: e.pageY }).generate().replay();
+// });

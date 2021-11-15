@@ -10,8 +10,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.45);
-  backdrop-filter: blur(10px);
 }
 
 .loader-wrapper .loader {
@@ -261,6 +259,7 @@
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
+  cursor: none;
 }
 
 .cursor {
@@ -337,7 +336,7 @@ img {
   --nav_location: calc(100vw - 23px);
   clip-path: circle(0% at var(--nav_location) 25px);
   position: fixed;
-  backdrop-filter: blur(20px);
+  background: var(--background-text-color);
   width: 100vw;
   height: 100vh;
   top: 0;
@@ -363,6 +362,7 @@ img {
   font-size: var(--normal-font-size);
   transition: all 0.5s;
   width: fit-content;
+  font-weight: var(--font-extra-light);
 }
 .mobile_navbar .nav_list .item a {
   color: var(--text-color);
@@ -435,8 +435,9 @@ header .nav_list .item {
   border: 0.2rem solid transparent;
   border-radius: 2rem;
   padding: 0px var(--length-1);
-  font-size: var(--normal-font-size);
+  font-size: var(--smaller-font-size);
   transition: all 0.5s;
+  font-weight: var(--font-extra-light);
 }
 header .nav_list .item a {
   color: var(--text-color);
@@ -494,9 +495,6 @@ header .nav .navigation_button_clicked .second {
 }
 
 .main_container {
-  height: 100%;
-  scroll-snap-type: y mandatory;
-  overflow-y: scroll;
   margin: 0px;
   padding: 0px;
 }
@@ -505,7 +503,6 @@ header .nav .navigation_button_clicked .second {
   width: 100%;
   display: flex;
   justify-content: center;
-  scroll-snap-align: start;
 }
 .main_container .container {
   max-width: var(--container-max-width);
@@ -535,6 +532,8 @@ header .nav .navigation_button_clicked .second {
   color: #ffffff;
   font-size: var(--section-heading-font-size);
   font-weight: var(--font-medium);
+  width: fit-content;
+  margin: 0px auto;
 }
 .main_container .service_section .title_container .background_title,
 .main_container .process_section .title_container .background_title,
@@ -882,9 +881,13 @@ header .nav .navigation_button_clicked .second {
   color: var(--white);
 }
 .main_container .about_section .about_container .main_content .content .aboutpage_button img {
-  height: 15px;
+  height: 13px;
   align-self: center;
-  margin-left: calc(var(--length-1)/2);
+  margin-left: 8px;
+  transition: all 0.3s;
+}
+.main_container .about_section .about_container .main_content .content .aboutpage_button:hover img {
+  margin-left: 15px;
 }
 .main_container .service_section {
   background-color: #1F1F1F;
@@ -986,6 +989,26 @@ header .nav .navigation_button_clicked .second {
   color: var(--white);
   cursor: pointer;
   width: fit-content;
+}
+.main_container .service_section .service_container .grid_container .first_container .item .hire_button .semi_circle, .main_container .service_section .service_container .grid_container .second_container .item .hire_button .semi_circle, .main_container .service_section .service_container .grid_container .third_container .item .hire_button .semi_circle {
+  animation: semi_circle_ani 4s ease-in-out infinite;
+  animation-direction: alternate-reverse;
+}
+@keyframes semi_circle_ani {
+  0% {
+    stroke-dashoffset: 10%;
+    stroke-dasharray: 100% 240%;
+  }
+  100% {
+    stroke-dashoffset: -140%;
+    stroke-dasharray: 150% 240%;
+  }
+}
+.main_container .service_section .service_container .grid_container .first_container .item .hire_button .semi_circle_1, .main_container .service_section .service_container .grid_container .second_container .item .hire_button .semi_circle_1, .main_container .service_section .service_container .grid_container .third_container .item .hire_button .semi_circle_1 {
+  animation-delay: 1s;
+}
+.main_container .service_section .service_container .grid_container .first_container .item .hire_button .semi_circle_2, .main_container .service_section .service_container .grid_container .second_container .item .hire_button .semi_circle_2, .main_container .service_section .service_container .grid_container .third_container .item .hire_button .semi_circle_2 {
+  animation-delay: 3s;
 }
 .main_container .service_section .service_container .grid_container .first_container .item .hire_button a, .main_container .service_section .service_container .grid_container .second_container .item .hire_button a, .main_container .service_section .service_container .grid_container .third_container .item .hire_button a {
   color: var(--white);
@@ -1305,7 +1328,7 @@ header .nav .navigation_button_clicked .second {
   z-index: 50;
 }
 .main_container .tech_section .tech_container .grid_container .swiper .swiper-slide {
-  text-align: justify;
+  text-align: center;
   font-size: 18px;
   padding: 0px 50px;
   /* Center slide text vertically */
@@ -1410,9 +1433,6 @@ header .nav .navigation_button_clicked .second {
   margin-right: 4rem;
   border: 2px solid var(--primary-color);
 }
-.main_container .portfolio_section .project_container .project_popup .details .main_content .buttons_container .preview {
-  background-color: var(--primary-color);
-}
 .main_container .portfolio_section .project_container .project_popup .close {
   position: absolute;
   height: 20px;
@@ -1478,6 +1498,9 @@ header .nav .navigation_button_clicked .second {
   font-size: var(--normal-font-size);
   font-family: var(--Poppins);
 }
+.main_container .portfolio_section .portfolio_container .text_container .button img {
+  height: 14px;
+}
 .main_container .portfolio_section .portfolio_container .swiper_container {
   width: 600px;
 }
@@ -1524,11 +1547,14 @@ header .nav .navigation_button_clicked .second {
   gap: 0.3rem;
   border: var(--primary-color) solid 2px;
   width: fit-content;
-  padding: 2px 5px 2px 10px;
+  padding: 3px 5px 3px 10px;
   margin-top: 8px;
   border-radius: 20px;
   font-size: var(--smaller-font-size);
   font-weight: var(--font-extra-light);
+}
+.main_container .portfolio_section .portfolio_container .swiper_container .card .main_content .button img {
+  height: 16px;
 }
 .main_container .portfolio_section .portfolio_container .swiper_container .card .main_content .description {
   font-size: var(--smaller-font-size);
@@ -1658,7 +1684,7 @@ header .nav .navigation_button_clicked .second {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: black;
+  background-color: var(--background-text-color);
   font-size: var(--smaller-font-size);
 }
 .main_container .contacts_section .footer img {
@@ -1954,9 +1980,10 @@ header .nav .navigation_button_clicked .second {
   .main_container .home_section .home_container .hi_box .content {
     margin-left: 1.2rem;
     line-height: 2.5rem;
+    font-size: 1.7rem;
   }
   .main_container .home_section .home_container .hi_box .content span {
-    font-size: 2.7rem;
+    font-size: 2.4rem;
   }
   .main_container .home_section .home_container .quote {
     grid-area: quote;
@@ -1977,7 +2004,7 @@ header .nav .navigation_button_clicked .second {
     align-self: flex-start;
   }
   .main_container .home_section .home_container .scroll-down .scroll-container {
-    transform: translateY(0%) scale(60%) rotate(180deg);
+    transform: translateY(100%) scale(60%) rotate(180deg);
   }
   .main_container .about_section .about_container {
     height: calc(100vh - 70px) !important;
@@ -2241,6 +2268,7 @@ header .nav .navigation_button_clicked .second {
   .main_container .portfolio_section .portfolio_container .swiper_container {
     width: 100%;
     margin: 4rem 0;
+    overflow: hidden;
   }
   .main_container .portfolio_section .portfolio_container .swiper_container .swiper {
     width: 250px;
@@ -2249,10 +2277,11 @@ header .nav .navigation_button_clicked .second {
   .main_container .portfolio_section .portfolio_container .swiper_container .card {
     width: fit-content;
     height: fit-content;
+    padding: 8px;
   }
   .main_container .portfolio_section .portfolio_container .swiper_container .card .thumbnail {
     border-radius: 10px;
-    width: 230px;
+    width: 234px;
   }
   .main_container .portfolio_section .portfolio_container .swiper_container .card .main_content .button img {
     height: 17px;
@@ -2324,4 +2353,8 @@ header .nav .navigation_button_clicked .second {
   .main_container .contacts_section .footer {
     height: 50px;
   }
-}/*# sourceMappingURL=style.css.map */
+}
+html:not(.no-js) [data-aos=fade-left] {
+  -webkit-transform: translate3d(50px, 0, 0);
+  transform: translate3d(50px, 0, 0);
+}
