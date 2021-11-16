@@ -272,10 +272,12 @@
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
-  
-    cursor: none;
+    // cursor: none;
 }
 
+document {
+  overflow-x: hidden;
+}
 .cursor {
   top: -10px;
   left: -10px;
@@ -547,6 +549,7 @@ header {
     // height: 100%;
     // scroll-snap-type: y mandatory;
     // overflow-y: scroll;
+    overflow: hidden;
     margin: 0px;
     padding: 0px;
   

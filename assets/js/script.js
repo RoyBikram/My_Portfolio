@@ -26,6 +26,7 @@ const portfolio_swiper_buttons = document.querySelectorAll('.portfolio_container
 const project_container = document.querySelector('.portfolio_section .project_container')
 const project_close = project_container.querySelector('.close')
 const popup_background = project_container.querySelector('.popup_background')
+const main_container = document.querySelector('.main_container');
 const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
 
 
@@ -469,42 +470,42 @@ popup_background.addEventListener('click', () => {
 
 
 
-// const burst = new mojs.Burst({
-//   left: 0,
-//   top: 0,
-//   radius: { 0: 30 },
-//   angle: "rand(0, 360)",
-//   children: {
-//     shape: "line",
-//     stroke: "white",
-//     fill: "none",
-//     scale: 1,
-//     scaleX: { 1: 0 },
-//     easing: "cubic.out",
-//     duration: 1000 } });
+const burst = new mojs.Burst({
+  left: 0,
+  top: 0,
+  radius: { 0: 30 },
+  angle: "rand(0, 360)",
+  children: {
+    shape: "line",
+    stroke: "white",
+    fill: "none",
+    scale: 1,
+    scaleX: { 1: 0 },
+    easing: "cubic.out",
+    duration: 1000 } });
 
 
 
-// const bubbles = new mojs.Burst({
-//   left: 0,
-//   top: 0,
-//   radius: 28,
-//   count: 3,
-//   timeline: { delay: 100 },
-//   children: {
-//     stroke: "white",
-//     fill: "none",
-//     scale: 1,
-//     strokeWidth: { 8: 0 },
-//     radius: { 0: "rand(6, 10)" },
-//     degreeShift: "rand(-50, 50)",
-//     duration: 400,
-//     delay: "rand(0, 250)" } });
+const bubbles = new mojs.Burst({
+  left: 0,
+  top: 0,
+  radius: 28,
+  count: 3,
+  timeline: { delay: 100 },
+  children: {
+    stroke: "white",
+    fill: "none",
+    scale: 1,
+    strokeWidth: { 8: 0 },
+    radius: { 0: "rand(6, 10)" },
+    degreeShift: "rand(-50, 50)",
+    duration: 400,
+    delay: "rand(0, 250)" } });
 
 
 
-// document.addEventListener("click", function (e) {
-//   burst.tune({ x: e.pageX, y: e.pageY }).generate().replay();
+  document.querySelector('.main_container').addEventListener("click", function (e) {
+  burst.tune({ x: e.pageX, y: e.pageY }).generate().replay();
 
-//   bubbles.tune({ x: e.pageX, y: e.pageY }).generate().replay();
-// });
+  bubbles.tune({ x: e.pageX, y: e.pageY }).generate().replay();
+});

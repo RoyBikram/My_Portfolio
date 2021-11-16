@@ -259,7 +259,10 @@
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
-  cursor: none;
+}
+
+document {
+  overflow-x: hidden;
 }
 
 .cursor {
@@ -495,6 +498,7 @@ header .nav .navigation_button_clicked .second {
 }
 
 .main_container {
+  overflow: hidden;
   margin: 0px;
   padding: 0px;
 }
