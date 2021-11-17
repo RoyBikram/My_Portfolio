@@ -1203,7 +1203,6 @@ header .nav .navigation_button_clicked .second {
   height: fit-content;
   align-self: center;
   justify-self: end;
-  margin-right: 40px;
   text-align: right;
   max-width: 450px;
   grid-area: heading;
@@ -1862,6 +1861,11 @@ header .nav .navigation_button_clicked .second {
     width: calc(100%*(6/6));
   }
 }
+html:not(.no-js) [data-aos=fade-left] {
+  -webkit-transform: translate3d(50px, 0, 0);
+  transform: translate3d(50px, 0, 0);
+}
+
 @media only screen and (max-width: 426px) {
   :root {
     --header-height: 50px;
@@ -2358,7 +2362,26 @@ header .nav .navigation_button_clicked .second {
     height: 50px;
   }
 }
-html:not(.no-js) [data-aos=fade-left] {
-  -webkit-transform: translate3d(50px, 0, 0);
-  transform: translate3d(50px, 0, 0);
+@media only screen and (max-width: 1440px) {
+  .main_container .contacts_section .contacts_container .grid_container .rightside_content {
+    width: 570px;
+  }
+
+  .main_container .container {
+    padding: 0px 20px;
+  }
+
+  .main_container .process_section .process_container .middle_line_container .middle_line .card_circle .card_container .card .discription {
+    width: 100%;
+  }
+
+  .main_container .process_section .process_container .middle_line_container .middle_line .card_circle .card_container .card {
+    width: 22.5vw;
+    padding: 25px 17px;
+  }
+
+  .main_container .process_section .process_container .middle_line_container .middle_line {
+    width: 74vw;
+    transform: translateX(-11vw);
+  }
 }
