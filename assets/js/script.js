@@ -424,7 +424,7 @@ const project_data = {
 portfolio_swiper_buttons.forEach(element => {
   element.addEventListener('click', (event) => {
     project_container.classList.add('visible')
-    console.log(event.currentTarget.dataset.name);
+    // console.log(event.currentTarget.dataset.name);
     const project_heading = document.querySelector('.project_container .about .heading ')
     const project_content = document.querySelector('.project_container .about .content ')
     const project_tech_items = document.querySelectorAll('.project_container .tech .item ')
