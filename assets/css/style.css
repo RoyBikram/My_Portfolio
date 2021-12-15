@@ -412,6 +412,7 @@ header {
   height: var(--header-height);
   position: fixed;
   z-index: 1000;
+  -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
 }
 header .nav {
@@ -1407,7 +1408,6 @@ header .nav .navigation_button_clicked .second {
   align-items: center;
   z-index: 20;
   opacity: 0;
-  min-height: 800px;
 }
 .main_container .portfolio_section .project_container .popup_background {
   background-color: rgba(0, 0, 0, 0.2);
@@ -1415,6 +1415,7 @@ header .nav .navigation_button_clicked .second {
   height: 100%;
   width: 100%;
   backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
 }
 .main_container .portfolio_section .project_container .project_popup {
   height: fit-content;
@@ -1489,6 +1490,7 @@ header .nav .navigation_button_clicked .second {
   position: relative;
   align-items: center;
   justify-content: space-evenly;
+  min-height: 800px;
 }
 .main_container .portfolio_section .portfolio_container .text_container {
   max-width: 460px;
