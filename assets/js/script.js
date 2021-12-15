@@ -363,14 +363,14 @@ const project_data = {
   fabcom: {
     name:'Social Media App Landing Page',
     description: 'It\'s a landing page for an imaginary social media app. In this website, I describe some unique features of the app and provide the download link of the imaginary app.',
-    img_url: '/assets/img/protfulio/project_img/fabcom.png',
+    img_url: '/assets/img/protfulio/project_img/fabcom.jpg',
     tech: ['HTML', 'CSS', 'JavaScript', 'SASS', 'Github'],
     preview_url: 'https://fabcom.netlify.app'
   },
   carfinder: {
     name: 'Car Selling Website',
     description: 'This is an imaginary car selling website. Where you will find a category section. I also create a spatial services section of the website. And an app section is there.',
-    img_url: '/assets/img/protfulio/project_img/carfinder.png',
+    img_url: '/assets/img/protfulio/project_img/carfinder.jpg',
     tech: ['HTML', 'CSS', 'JavaScript', 'SASS', 'Github'],
     preview_url: 'https://carfinderofficial.netlify.app/'
   },
